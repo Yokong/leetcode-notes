@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	r := src.RomanToInt("MCMXCIV")
+	r := src.RomanToInt("IL")
 	fmt.Println(r)
 }

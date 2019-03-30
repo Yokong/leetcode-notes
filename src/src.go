@@ -1,7 +1,7 @@
 package src
 
 func RomanToInt(s string) int {
-	data := map[byte]int{
+	data := map[int32]int{
 		'I': 1,
 		'V': 5,
 		'X': 10,
@@ -11,16 +11,14 @@ func RomanToInt(s string) int {
 		'M': 1000,
 	}
 
-	var lastNum int
-	var result int
-	for i := len(s) - 1; i >= 0; i-- {
-		l := data[s[i]]
-		sign := 1
-		if l < lastNum {
-			sign = -1
+	var result, last int
+	for _, v := range s {
+		cur := data[v]
+		result += cur
+		if cur > last {
+			result -= 2 * last
 		}
-		result += sign * l
-		lastNum = l
+		last = data[v]
 	}
 	return result
 }
