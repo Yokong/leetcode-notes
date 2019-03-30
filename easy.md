@@ -58,3 +58,31 @@ func isPalindrome(x int) bool {
     return false
 }
 ```
+
+### 13. 罗马数字转整数
+```go
+func romanToInt(s string) int {
+    data := map[byte]int{
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000,
+    }    
+    
+    result := 0
+    lastNum := 0
+    for i:=len(s) -1; i>=0; i-- {
+        cur := data[s[i]]
+        sign := 1
+        if cur < lastNum {
+            sign = -1
+        }
+        result += cur * sign
+        lastNum = cur
+    }
+    return result
+}
+```
