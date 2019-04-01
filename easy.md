@@ -1,4 +1,4 @@
-### 两数之和
+### 1. 两数之和
 ```golang
 func twoSum(nums []int, target int) []int {
     m := make(map[int] int, len(nums))
@@ -12,7 +12,7 @@ func twoSum(nums []int, target int) []int {
     return []int{}
 }
 ```
-### 整数反转
+### 7. 整数反转
 ```go
 import "math"
 
@@ -35,7 +35,7 @@ func reverse(x int) int {
 }
 ```
 
-### 回文数
+### 9. 回文数
 ```go
 func isPalindrome(x int) bool {
     if x < 0 {
@@ -82,5 +82,27 @@ func romanToInt(s string) int {
 		last = data[v]
 	}
 	return result
+}
+```
+
+### 14. 最长公共前缀
+> 按字母顺序排序数组, 取出最小和最大的字符串的公共前缀就是整个数组的公共前缀
+```go
+import "sort"
+
+func longestCommonPrefix(strs []string) string {
+    if len(strs) == 0 {return ""}
+    sort.Strings(strs)
+    min := strs[0]
+    max := strs[len(strs)-1]
+    res := ""
+    for i:=0; i<len(min); i++ {
+        if min[i] == max[i] {
+            res += string(min[i])
+        } else {
+            break
+        }
+    }
+    return res
 }
 ```
