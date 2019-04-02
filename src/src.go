@@ -22,3 +22,29 @@ func RomanToInt(s string) int {
 	}
 	return result
 }
+
+
+// 20. 有效的括号
+func IsValid(s string) bool {
+	bracketMap := map[int32]int32{
+		40: 41,
+		91: 93,
+		123: 125,
+	}
+	var stack []int32
+	for _, i := range s {
+		if _, ok := bracketMap[i]; ok {
+			stack = append(stack, i)
+		} else {
+			// 取出上一个
+			last := stack[len(stack)-1]
+			stack = stack[:len(stack)-1]
+			bracket := bracketMap[last]
+			if i != bracket {
+				return false
+			}
+			continue
+		}
+	}
+	return true
+}
