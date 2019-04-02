@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	a := "((]]"
+	a := "(())"
 	res := src.IsValid(a)
 	fmt.Println(res)
 }
