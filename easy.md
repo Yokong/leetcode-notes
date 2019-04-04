@@ -171,3 +171,22 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
     return res
 }
 ```
+
+
+### 26. 删除排序数组中的重复项
+```go
+func removeDuplicates(nums []int) int {
+	idx := 0
+	for i, v := range nums {
+		if i == 0 || v == nums[idx] {
+			continue
+		}
+		if v < nums[idx] {
+			break
+		}
+		nums[idx+1] = v
+		idx++
+	}
+	return idx+1
+}
+```
