@@ -190,3 +190,17 @@ func removeDuplicates(nums []int) int {
 	return idx+1
 }
 ```
+
+### 27. 移除元素
+```go
+func removeElement(nums []int, val int) int {
+    j := 0
+    for i, v := range nums {
+        if v != val {
+            nums[j] = nums[i]
+            j++
+        }
+    }
+    return j
+}
+```
