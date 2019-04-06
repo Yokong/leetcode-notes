@@ -219,3 +219,23 @@ func strStr(haystack string, needle string) int {
 	return res
 }
 ```
+
+### 35. 搜索插入位置
+> 利用二分查找
+```go
+func searchInsert(nums []int, target int) int {
+    left := 0
+    right := len(nums)
+    for left < right {
+        mid := left + (right - left) / 2
+        if nums[mid] > target {
+            right = mid
+        } else if nums[mid] < target {
+            left = mid + 1
+        } else {
+            return mid
+        }
+    }
+    return left
+}
+```
