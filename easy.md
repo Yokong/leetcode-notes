@@ -204,3 +204,18 @@ func removeElement(nums []int, val int) int {
     return j
 }
 ```
+
+### 28. 实现strStr()
+```go
+func strStr(haystack string, needle string) int {
+    if needle == "" {return 0}
+	if len(needle) > len(haystack) {return -1}
+	res := -1
+	for i:=0; i<=len(haystack)-len(needle); i++ {
+		if haystack[i:len(needle)+i] == needle {
+			return i
+		}
+	}
+	return res
+}
+```
