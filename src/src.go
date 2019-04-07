@@ -89,3 +89,20 @@ func CountAndSay(n int) string {
 	res = res + strconv.Itoa(count) + string(c)
 	return res
 }
+
+
+// 53. 最大子序和
+func MaxSubArray(nums []int) int {
+	sum := 0
+	max := nums[0]
+	for i:=0; i<len(nums); i++ {
+		sum += nums[i]
+		if sum > max {
+			max = sum
+		}
+		if sum < 0 {
+			sum = 0
+		}
+	}
+	return max
+}
