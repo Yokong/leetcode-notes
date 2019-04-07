@@ -1,5 +1,7 @@
 package src
 
+import "strconv"
+
 func RomanToInt(s string) int {
 	data := map[int32]int{
 		'I': 1,
@@ -53,14 +55,37 @@ func IsValid(s string) bool {
 
 
 // 28. 实现strStr()
-func StrStr(haystack, needle string) int {
+func StrStr(haystack string, needle string) int {
 	if needle == "" {return 0}
 	if len(needle) > len(haystack) {return -1}
-	res := -1
 	for i:=0; i<=len(haystack)-len(needle); i++ {
 		if haystack[i:len(needle)+i] == needle {
 			return i
 		}
 	}
+	return -1
+}
+
+
+// 38. 报数
+func CountAndSay(n int) string {
+	if n == 1 {return "1"}
+	last := CountAndSay(n-1)
+
+	res := ""
+	var c byte
+	c = last[0]
+	count := 1
+	for i:=1; i<len(last); i++ {
+		if last[i] == c {
+			count++
+			continue
+		}
+		res = res + strconv.Itoa(count) + string(c)
+		c = last[i]
+		count = 1
+	}
+
+	res = res + strconv.Itoa(count) + string(c)
 	return res
 }

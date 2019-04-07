@@ -6,8 +6,6 @@ import (
 )
 
 func main() {
-	a := "a"
-	b := "a"
-	i := src.StrStr(a, b)
-	fmt.Println(i)
+	res := src.CountAndSay(31)
+	fmt.Println(res)
 }
