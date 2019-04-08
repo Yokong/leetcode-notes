@@ -281,3 +281,17 @@ func MaxSubArray(nums []int) int {
 	return max
 }
 ```
+
+### 58. 最后一个单词的长度
+```go
+func LengthOfLastWord(s string) int {
+	l := len(s) - 1
+	res := 0
+	for l>=0 && s[l] == ' ' {l--}
+	for l>=0 && s[l] != ' ' {
+		res++
+		l--
+	}
+	return res
+}
+```

@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
-	a := []int{-2,1,-3,4,-1,2,1,-5,4}
-	fmt.Println(src.MaxSubArray(a))
+	a := "a"
+	res := src.LengthOfLastWord(a)
+	fmt.Println(res)
 }

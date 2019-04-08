@@ -1,6 +1,8 @@
 package src
 
-import "strconv"
+import (
+	"strconv"
+)
 
 func RomanToInt(s string) int {
 	data := map[int32]int{
@@ -105,4 +107,16 @@ func MaxSubArray(nums []int) int {
 		}
 	}
 	return max
+}
+
+// 58. 最后一个单词的长度
+func LengthOfLastWord(s string) int {
+	l := len(s) - 1
+	res := 0
+	for l>=0 && s[l] == ' ' {l--}
+	for l>=0 && s[l] != ' ' {
+		res++
+		l--
+	}
+	return res
 }
