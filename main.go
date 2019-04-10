@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	a := "a"
-	res := src.LengthOfLastWord(a)
-	fmt.Println(res)
+	a := []int{9, 8}
+	a = src.PlusOne(a)
+	fmt.Println(a)
 }
