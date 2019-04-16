@@ -2,6 +2,7 @@ package src
 
 import (
 	"strconv"
+	"strings"
 )
 
 func RomanToInt(s string) int {
@@ -127,8 +128,9 @@ func LengthOfLastWord(s string) int {
 	return res
 }
 
+// 66. 加一
 func PlusOne(digits []int) []int {
-	for i:=len(digits)-1; i>=0; i-- {
+	for i := len(digits) - 1; i >= 0; i-- {
 		if digits[i] < 9 {
 			digits[i]++
 			return digits
@@ -137,4 +139,34 @@ func PlusOne(digits []int) []int {
 	}
 	digits = append([]int{1}, digits...)
 	return digits
+}
+
+// 67. 二进制求和
+func AddBinary(a, b string) string {
+	lenA := len(a)
+	lenB := len(b)
+	if lenB > lenA {
+		a, b = b, a
+		lenA, lenB = lenB, lenA
+	}
+	b = strings.Repeat("0", lenA-lenB) + b
+	lenB = len(b)
+
+	carry := byte(0)
+	ret := make([]byte, lenB+1)
+
+	for i := lenB - 1; i >= 0; i-- {
+		numA := a[i] - '0'
+		numB := b[i] - '0'
+		sum := numA + numB + carry
+		ret[i+1] = sum&1 + '0'
+		carry = sum >> 1
+	}
+
+	if carry == 0 {
+		ret = ret[1:]
+	} else {
+		ret[0] = carry + '0'
+	}
+	return string(ret)
 }

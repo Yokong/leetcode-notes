@@ -6,7 +6,8 @@ import (
 )
 
 func main() {
-	a := []int{9, 8}
-	a = src.PlusOne(a)
-	fmt.Println(a)
+	a := "11"
+	b := "10"
+	c := src.AddBinary(a, b)
+	fmt.Println(c)
 }
