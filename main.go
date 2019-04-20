@@ -6,8 +6,6 @@ import (
 )
 
 func main() {
-	a := "11"
-	b := "10"
-	c := src.AddBinary(a, b)
-	fmt.Println(c)
+	n := src.ClimbStairs(10)
+	fmt.Println(n)
 }

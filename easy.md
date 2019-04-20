@@ -356,3 +356,18 @@ func MySqrt(x int) int {
 	return i
 }
 ```
+
+### 70. 爬楼梯
+> 利用动态规划,  同时也是求斐波那契数列
+```go
+func ClimbStairs(n int) int {
+	if n == 1 {
+		return 1
+	}
+	a, b := 1, 2
+	for i := 3; i <= n; i++ {
+		a, b = b, a+b
+	}
+	return b
+}
+```
