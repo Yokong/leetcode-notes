@@ -1,11 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"leetcode-notes/src"
 )
 
 func main() {
-	n := src.ClimbStairs(10)
-	fmt.Println(n)
+	n1 := []int{1, 2, 3}
+	n2 := []int{4, 5}
+	src.Merge(n1, n2, 3, 2)
 }
