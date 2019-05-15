@@ -1,7 +1,6 @@
 package src
 
 import (
-	"math"
 	"strconv"
 	"strings"
 )
@@ -279,5 +278,9 @@ func MaxDepth(root *TreeNode) int {
 	}
 	left := MaxDepth(root.Left)
 	right := MaxDepth(root.Right)
-	return int(math.Max(float64(left), float64(right))) + 1
+	if left > right {
+		return left + 1
+	} else {
+		return right + 1
+	}
 }
