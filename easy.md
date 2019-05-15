@@ -452,3 +452,15 @@ func isMirror(t1 *TreeNode, t2 *TreeNode) bool {
 	return (t1.Val == t2.Val) && isMirror(t1.Left, t2.Right) && isMirror(t1.Right, t2.Left)
 }
 ```
+
+### 104. 二叉树的最大深度
+```go
+func MaxDepth(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+	left := MaxDepth(root.Left)
+	right := MaxDepth(root.Right)
+	return int(math.Max(float64(left), float64(right))) + 1
+}
+```
