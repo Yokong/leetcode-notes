@@ -1,11 +1,28 @@
 package main
 
 import (
+	"fmt"
 	"leetcode-notes/src"
 )
 
 func main() {
-	n1 := []int{1, 2, 3}
-	n2 := []int{4, 5}
-	src.Merge(n1, n2, 3, 2)
+	root := src.TreeNode{
+		Val: 3,
+	}
+	root.Left = &src.TreeNode{
+		Val: 9,
+	}
+	right := &src.TreeNode{
+		Val: 20,
+		Left: &src.TreeNode{
+			Val: 15,
+		},
+		Right: &src.TreeNode{
+			Val: 7,
+		},
+	}
+	root.Right = right
+
+	res := src.LevelOrderBottom(&root)
+	fmt.Println(res)
 }

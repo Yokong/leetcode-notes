@@ -284,3 +284,39 @@ func MaxDepth(root *TreeNode) int {
 		return right + 1
 	}
 }
+
+// 107. 二叉树的层次遍历 II
+func LevelOrderBottom(root *TreeNode) [][]int {
+	res := make([][]int, 0)
+	if root == nil {
+		return res
+	}
+
+	ns := make([]*TreeNode, 0)
+	ns = append(ns, root)
+
+	for len(ns) != 0 {
+		tmp := []int{}
+		count := len(ns)
+		for i := 0; i < count; i++ {
+			tmp = append(tmp, ns[0].Val)
+			if ns[0].Left != nil {
+				ns = append(ns, ns[0].Left)
+			}
+			if ns[0].Right != nil {
+				ns = append(ns, ns[0].Right)
+			}
+			ns = ns[1:]
+		}
+		res = append(res, tmp)
+	}
+
+	i, j := 0, len(res)-1
+	for i < j {
+		res[i], res[j] = res[j], res[i]
+		i++
+		j--
+	}
+
+	return res
+}
