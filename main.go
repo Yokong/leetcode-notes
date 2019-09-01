@@ -2,27 +2,20 @@ package main
 
 import (
 	"fmt"
-	"leetcode-notes/src"
+	"leetcode-notes/stack"
 )
 
 func main() {
-	root := src.TreeNode{
-		Val: 3,
-	}
-	root.Left = &src.TreeNode{
-		Val: 9,
-	}
-	right := &src.TreeNode{
-		Val: 20,
-		Left: &src.TreeNode{
-			Val: 15,
-		},
-		Right: &src.TreeNode{
-			Val: 7,
-		},
-	}
-	root.Right = right
-
-	res := src.LevelOrderBottom(&root)
-	fmt.Println(res)
+	s := stack.New()
+	s.Push(10)
+	s.Push(11)
+	s.Push(12)
+	s.Push(13)
+	fmt.Println(s.Pop())
+	fmt.Println(s.Pop())
+	fmt.Println(s.Pop())
+	fmt.Println(s.Pop())
+	fmt.Println(s.Pop())
+	fmt.Println(s.Pop())
+	fmt.Println(s.Pop())
 }
