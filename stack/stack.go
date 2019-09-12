@@ -18,6 +18,10 @@ func (s *Stack) Len() int {
 	return s.length
 }
 
+func (s *Stack) Top() interface{} {
+	return s.top.val
+}
+
 func (s *Stack) Push(val interface{}) {
 	n := &node{
 		val:  val,
