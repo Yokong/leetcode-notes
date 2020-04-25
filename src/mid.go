@@ -6,15 +6,15 @@ import (
 
 // 98. 验证二叉搜索树
 func IsValidBST(root *TreeNode) bool {
-	stack := stack.New()
+	s := stack.New()
 	inorder := -2147483648
-	for stack.Len() > 0 || root != nil {
+	for s.Len() > 0 || root != nil {
 		for root != nil {
-			stack.Push(root)
+			s.Push(root)
 			root = root.Left
 		}
 
-		root = stack.Pop().(*TreeNode)
+		root = s.Pop().(*TreeNode)
 		if root.Val <= inorder {
 			return false
 		}

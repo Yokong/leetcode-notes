@@ -2,20 +2,10 @@ package main
 
 import (
 	"fmt"
-	"leetcode-notes/stack"
+	"leetcode-notes/src/array"
 )
 
 func main() {
-	s := stack.New()
-	s.Push(10)
-	s.Push(11)
-	s.Push(12)
-	s.Push(13)
-	fmt.Println(s.Pop())
-	fmt.Println(s.Pop())
-	fmt.Println(s.Pop())
-	fmt.Println(s.Pop())
-	fmt.Println(s.Pop())
-	fmt.Println(s.Pop())
-	fmt.Println(s.Pop())
+	a := []int{-1, 0, 1, 2, -1, -4}
+	fmt.Println(array.ThreeSum(a))
 }
