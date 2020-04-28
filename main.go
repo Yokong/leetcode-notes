@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	a := []int{0, 4, -5, 2, -2, 4, 2, -1, 4}
-	fmt.Println(array.FourSum(a, 12))
+	a := []int{1, 8, 6, 2, 5, 4, 8, 3, 7}
+	fmt.Println(array.MaxArea(a))
 }

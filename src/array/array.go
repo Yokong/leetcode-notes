@@ -1,6 +1,7 @@
 package array
 
 import (
+	"leetcode-notes/src/util"
 	"sort"
 )
 
@@ -116,6 +117,30 @@ func FourSum(nums []int, target int) [][]int {
 					j--
 				}
 			}
+		}
+	}
+
+	return res
+}
+
+// 11. 盛最多水的容器
+// 双指针
+// 过程
+//   定义两个指针分别指向数组第一个元素和最后一个元素
+//   取两个元素(这里定义为a, b)的最小值乘上宽度: min(a, b) * w w为剩余的宽度
+//   将上面得到的结果与定义的res取最大值
+//   如果左边的元素小于右边的，就将左指针右移否则就将右指针向左移
+//   循环上面步骤直到左右指针相遇为止
+func MaxArea(height []int) int {
+	l, r := 0, len(height)-1
+	res := 0
+
+	for l < r {
+		res = util.MaxInt(res, util.MinInt(height[l], height[r])*(r-l))
+		if height[l] < height[r] {
+			l++
+		} else {
+			r--
 		}
 	}
 
