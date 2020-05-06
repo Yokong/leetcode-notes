@@ -2,6 +2,7 @@ package array
 
 import (
 	"leetcode-notes/src/util"
+	"math"
 	"sort"
 )
 
@@ -141,6 +142,47 @@ func MaxArea(height []int) int {
 			l++
 		} else {
 			r--
+		}
+	}
+
+	return res
+}
+
+//16. 最接近的三数之和
+//排序 + 双指针
+//	首先进行数组排序, 时间复杂度 O(nlogn)
+//	遍历数组nums, 利用下标i形成一个固定值nums[i]
+//	定义两个指针l, r分别是i+1, 和数组长度-1
+//	计算sum = nums[i] + nums[l] + nums[r]的结果, 判断sum与target的距离, 更新最近那个结果
+//	判断sum与target的大小关系, 因为数组有序, 如果sum > target 则r--, 如果sum < target则l++
+//		如果sum == target直接返回结果
+//	整个遍历过程, 最外for循环n次, 双指针为n次,时间复杂度为O(n^2)
+//	总时间复杂度: O(nlogn) + O(n^2) = O(n^2)
+func ThreeSumClosest(nums []int, target int) int {
+	if len(nums) < 3 {
+		return 0
+	}
+
+	sort.Ints(nums)
+
+	length := len(nums)
+	res := nums[0] + nums[1] + nums[2]
+
+	for i := 0; i < length; i++ {
+		l, r := i+1, length-1
+		for l < r {
+			sum := nums[i] + nums[l] + nums[r]
+			if math.Abs(float64(target-sum)) < math.Abs(float64(target-res)) {
+				res = sum
+			}
+
+			if sum > target {
+				r--
+			} else if sum < target {
+				l++
+			} else {
+				return res
+			}
 		}
 	}
 
