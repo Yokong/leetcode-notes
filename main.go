@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
-	a := []int{-1, 2, 1, -4}
-	fmt.Println(array.ThreeSumClosest(a, 1))
+	a := []int{1, 2, 3}
+	array.NextPermutation(a)
+	fmt.Println(a)
 }

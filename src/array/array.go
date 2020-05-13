@@ -188,3 +188,30 @@ func ThreeSumClosest(nums []int, target int) int {
 
 	return res
 }
+
+// 从后向前查找第一个相邻升序的元素(i,j),满足nums[i] < nums[j]
+// 在[j,end)从后向前查找第一个满足nums[i] < nums[k]的k
+// 交换nums[i], nums[k]
+// 此时[j,end)必然是降序，逆转[j, end),全其升序
+func NextPermutation(nums []int) {
+	if len(nums) <= 1 {
+		return
+	}
+
+	i, j, k := len(nums)-2, len(nums)-1, len(nums)-1
+	for i >= 0 && nums[i] >= nums[j] {
+		i--
+		j--
+	}
+
+	if i >= 0 {
+		for nums[i] >= nums[k] {
+			k--
+		}
+		nums[i], nums[k] = nums[k], nums[i]
+	}
+
+	for i, j := j, len(nums)-1; i < j; i, j = i+1, j-1 {
+		nums[i], nums[j] = nums[j], nums[i]
+	}
+}
