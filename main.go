@@ -6,7 +6,6 @@ import (
 )
 
 func main() {
-	a := []int{1, 2, 3}
-	array.NextPermutation(a)
-	fmt.Println(a)
+	a := []int{4, 5, 6, 7, 0, 1, 2}
+	fmt.Println(array.Search(a, 7))
 }
