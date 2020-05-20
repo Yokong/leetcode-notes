@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	a := []int{4, 5, 6, 7, 0, 1, 2}
-	fmt.Println(array.Search(a, 7))
+	a := []int{1}
+	fmt.Println(array.SearchRange(a, 1))
 }

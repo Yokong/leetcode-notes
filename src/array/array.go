@@ -246,3 +246,27 @@ func Search(nums []int, target int) int {
 
 	return -1
 }
+
+// 34. 在排序数组中查找元素的第一个和最后一个位置
+// 用二分查找, 找到与target相同值的位置, 然后判断相邻位置是否相等
+func SearchRange(nums []int, target int) []int {
+	binarySearch := func(nums []int, target int, left bool) int {
+		l, r := 0, len(nums)-1
+		for l <= r {
+			mid := l + (r-l)/2
+			if nums[mid] > target || (left && target == nums[mid]) {
+				r = mid - 1
+			} else {
+				l = mid + 1
+			}
+		}
+		return l
+	}
+
+	leftIdx := binarySearch(nums, target, true)
+	if leftIdx == len(nums) || nums[leftIdx] != target {
+		return []int{-1, -1}
+	}
+
+	return []int{leftIdx, binarySearch(nums, target, false) - 1}
+}
