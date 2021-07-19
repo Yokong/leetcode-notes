@@ -1,7 +1,7 @@
 package array
 
 import (
-	"leetcode-notes/src/util"
+	"leetcode-notes/util"
 	"math"
 	"sort"
 )
